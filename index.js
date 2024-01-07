@@ -7,6 +7,10 @@ dotenv.config()
 const PORT =process.env.PORT
 app.use(cors())
 app.use(express.json());//parsing the input into json 
+app.use((req, res, next) => {
+    res.type('application/javascript');
+    next();
+  });
 
 app.use('/',AppRoutes)//uses routes
 
